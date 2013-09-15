@@ -57,7 +57,9 @@ def getImageUrlFromEventDiv(event_div):
     return img["src"]
 
 def getTaglineFromEventDiv(event_div):
-    tagline = event_div.find("div", attrs={"class":"event-tagline"}.contents[0].strip())
+    tagline_div = event_div.find("div", attrs={"class":"event-tagline"})
+    tagline_a = tagline_div.find("a")
+    return tagline_a.contents[0].strip()
 
 def main():
     
